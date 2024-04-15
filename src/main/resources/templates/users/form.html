@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 th:if="${user.id} == null">Nuevo Usuario</h2>
+        <h2 th:if="${user.id} != null">Editar Usuario</h2>
+        <form th:action="@{/users/save}" th:object="${user}" method="post">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Nombre del usuario">
+            </div>
+           
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.m
